@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Promotion</title>
+</head>
+<body>
+<h1>Edit Promotion</h1>
+<form th:action="@{/edit/{id}(id=${promotion.id})}" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" th:value="${promotion.title}" required />
+    <br>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" th:value="${promotion.startDate}" required />
+    <br>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" th:value="${promotion.endDate}" required />
+    <br>
+    <label for="discount">Discount:</label>
+    <input type="number" id="discount" name="discount" th:value="${promotion.discount}" required />
+    <br>
+    <label for="details">Details:</label>
+    <textarea id="details" name="details" th:text="${promotion.details}"></textarea>
+    <br>
+    <button type="submit">Update Promotion</button>
+</form>
+</body>
+</html>

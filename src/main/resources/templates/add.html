@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Promotion</title>
+    <!-- Thêm liên kết đến Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Add New Promotion</h1>
+
+    <!-- Form để thêm khuyến mãi -->
+    <form th:action="@{/add}" method="post" th:object="${promotion}">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" th:field="*{title}" />
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" th:field="*{startDate}" />
+            <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="endDate">End Date:</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" th:field="*{endDate}" />
+            <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="discount">Discount:</label>
+            <input type="number" class="form-control" id="discount" name="discount" th:field="*{discount}" />
+            <p th:if="${#fields.hasErrors('discount')}" th:errors="*{discount}" class="text-danger"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="details">Details:</label>
+            <textarea class="form-control" id="details" name="details" th:field="*{details}"></textarea>
+            <p th:if="${#fields.hasErrors('details')}" th:errors="*{details}" class="text-danger"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Promotion</button>
+    </form>
+</div>
+
+<!-- Thêm JavaScript của Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
